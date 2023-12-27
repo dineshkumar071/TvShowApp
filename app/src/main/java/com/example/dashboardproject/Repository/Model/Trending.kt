@@ -8,7 +8,7 @@ class Trending {
     var page: Int? = null
 
     @Json(name = "results")
-    var results: List<Result>? = null
+    var results: List<Results>? = null
 
     @Json(name = "total_pages")
     var totalPages: Int? = null

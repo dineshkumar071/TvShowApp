@@ -3,7 +3,7 @@ package com.example.dashboardproject.Repository.Model
 import com.squareup.moshi.Json
 
 
-class Result {
+class Results {
     @Json(name = "adult")
     var adult: Boolean? = null
 

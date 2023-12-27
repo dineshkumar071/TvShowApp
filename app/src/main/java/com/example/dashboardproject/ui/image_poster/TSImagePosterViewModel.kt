@@ -17,7 +17,7 @@ class TSImagePosterViewModel @Inject constructor(
 ) : AndroidViewModel(mApplication) {
 
     val trendingLiveData by lazy { MutableLiveData<TSResponse<Trending>>() }
-    val searchedTrends by lazy { MutableLiveData<TSResponse<Trending>>() }
+    val searchedTrendsLiveData by lazy { MutableLiveData<TSResponse<Trending>>() }
 
     /**This method is used to fetch the trending list*/
     fun getTrending() {
@@ -39,19 +39,19 @@ class TSImagePosterViewModel @Inject constructor(
     }
 
     /** This method is used to fetch the searched trending list.*/
-    fun getSearchShows() {
-        val call = apiCalls.getSearchShows()
+    fun getSearchShows(searchString:String) {
+        val call = apiCalls.getSearchShows(searchString)
         call.enqueue(object : Callback<Trending> {
             override fun onResponse(call: Call<Trending>, response: Response<Trending>) {
                 if (response.isSuccessful) {
-                    searchedTrends.postValue(TSResponse.success(response.body()))
+                    searchedTrendsLiveData.postValue(TSResponse.success(response.body()))
                 } else {
-                    searchedTrends.postValue(TSResponse.error(response.message()))
+                    searchedTrendsLiveData.postValue(TSResponse.error(response.message()))
                 }
             }
 
             override fun onFailure(call: Call<Trending>, t: Throwable) {
-                searchedTrends.postValue(TSResponse.error(t.message.toString()))
+                searchedTrendsLiveData.postValue(TSResponse.error(t.message.toString()))
             }
         })
     }

@@ -6,7 +6,7 @@ import javax.inject.Inject
 class ApiCalls @Inject constructor(private val client : TSClient)  {
     fun getTrending()= client.getTrending()
 
-    fun getSearchShows() = client.getSearchedShows()
+    fun getSearchShows(searchTest:String) = client.getSearchedShows(searchTest)
 
     fun getSimilarTvShow() = client.getSimilarTvShow()
 }
