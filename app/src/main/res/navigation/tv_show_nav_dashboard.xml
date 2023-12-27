@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/ts_image_poster_fragment">
+
+    <fragment
+        android:id="@+id/ts_detail_screen_fragment"
+        android:name="com.example.dashboardproject.ui.detail_screen.TSDetailScreenFragment"
+        android:label="DetailScreen" />
+
+    <fragment android:id="@+id/ts_image_poster_fragment"
+        android:name="com.example.dashboardproject.ui.image_poster.TSImagePosterFragment"
+        android:label="ImagePosterScreen"/>
+
+</navigation>

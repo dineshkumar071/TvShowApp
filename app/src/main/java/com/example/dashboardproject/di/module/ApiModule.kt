@@ -29,7 +29,7 @@ class ApiModule(val baseUrl:String) {
     @Provides
     @Singleton
     fun provideOkHttpClient(logger:Interceptor): OkHttpClient.Builder =
-        OkHttpClient.Builder().addInterceptor(logger)
+        OkHttpClient.Builder().addInterceptor(logger).addInterceptor(HttpLoggingInterceptor())
 
     @Provides
     @Singleton

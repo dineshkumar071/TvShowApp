@@ -4,14 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dashboardproject.Repository.Model.Trending
 import com.example.dashboardproject.databinding.AdapterImagePosterBinding
 
 class TSImagePosterAdapter(private val mContext: Context,
-                           private val shows :MutableList<String>,
+                           private val shows :MutableList<Trending>,
                            private val imagePosterClickListener: ImagePosterClickListener) : RecyclerView.Adapter<TSImagePosterAdapter.ViewHolder>() {
 
-    lateinit var adapterImagePosterBinding: AdapterImagePosterBinding
-    class ViewHolder(binding: AdapterImagePosterBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(binding: AdapterImagePosterBinding) : RecyclerView.ViewHolder(binding.root){
 
     }
 
@@ -32,6 +32,6 @@ class TSImagePosterAdapter(private val mContext: Context,
     }
 
     interface ImagePosterClickListener {
-        fun posterOnClickListener()
+        fun posterOnClickListener(position: Int, trend:Trending)
     }
 }
